@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { User } from './user.model';
 // import { DUMMY_USERS } from '../dummy-users';
 
 // const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
@@ -8,12 +9,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 //   name: string;
 //   avatar: string;
 // }
-
-interface User {
-  id:string;
-  name: string;
-  avatar: string;
-}
 
 @Component({
   selector: 'app-user',
@@ -37,6 +32,7 @@ export class UserComponent {
   // }
 
   @Input({required: true}) user!: User;
+  @Input({required: true}) selected!: boolean;
   // @Input({required: true}) name!: string;
   // alternatively wa can use: avatar = input.required<string>();
 
