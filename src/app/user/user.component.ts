@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from './user.model';
+import { CardComponent } from '../common/card/card.component';
 // import { DUMMY_USERS } from '../dummy-users';
 
 // const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
@@ -14,7 +15,8 @@ import { User } from './user.model';
   selector: 'app-user',
   standalone: true,
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  styleUrl: './user.component.css',
+  imports: [CardComponent],
 })
 export class UserComponent {
   // selectedUser = DUMMY_USERS[randomIndex];
@@ -31,16 +33,16 @@ export class UserComponent {
   //   this.selectedUser.set(DUMMY_USERS[randomIndex]);
   // }
 
-  @Input({required: true}) user!: User;
-  @Input({required: true}) selected!: boolean;
+  @Input({ required: true }) user!: User;
+  @Input({ required: true }) selected!: boolean;
   // @Input({required: true}) name!: string;
   // alternatively wa can use: avatar = input.required<string>();
 
-  @Output() select = new EventEmitter<string>(); 
+  @Output() select = new EventEmitter<string>();
   // we can use: select = output<string>();
 
   get imagePath() {
-      return 'assets/users/' + this.user.avatar;
+    return 'assets/users/' + this.user.avatar;
   }
 
   onSelectUser() {
